@@ -209,4 +209,4 @@ BOARD_VNDK_VERSION := current
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Inherit from the proprietary version
--include vendor/xiaomi/raphael/BoardConfigVendor.mk
+include vendor/xiaomi/raphael/BoardConfigVendor.mk
