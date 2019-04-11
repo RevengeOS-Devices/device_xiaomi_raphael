@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
+# FlickerFree
+PRODUCT_PACKAGES += \
+    FlickerFree
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
