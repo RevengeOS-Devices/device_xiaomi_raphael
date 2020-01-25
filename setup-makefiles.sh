@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2018-2019 The LineageOS Project
+# Copyright (C) 2019 RevengeOS
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -18,7 +19,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 LINEAGE_ROOT="${MY_DIR}/../../.."
 
-HELPER="${LINEAGE_ROOT}/vendor/aosp/build/tools/extract_utils.sh"
+HELPER="${LINEAGE_ROOT}/vendor/revengeos/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
