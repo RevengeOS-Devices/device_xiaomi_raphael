@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 RevengeOS
+# Copyright (C) 2019-2020 RevengeOS
 # Copyright (C) 2019 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0

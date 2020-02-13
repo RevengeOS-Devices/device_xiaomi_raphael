@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2018-2019 The LineageOS Project
-# Copyright (C) 2019 RevengeOS
+# Copyright (C) 2019-2020 RevengeOS
 #
 # SPDX-License-Identifier: Apache-2.0
 #
