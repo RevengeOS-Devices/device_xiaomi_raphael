@@ -63,6 +63,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.cpurend.vsync=false \
     persist.debug.wfd.enable=0
 
+# Iorap
+PRODUCT_PROPERTY_OVERRIDES += \
+    iorapd.perfetto.enable=true \
+    iorapd.readahead.enable=true
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.mm.enable.prefetch=true \
