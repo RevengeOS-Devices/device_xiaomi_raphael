@@ -127,8 +127,8 @@ static char* bm_search(const char* str, size_t str_len, const char* pat, size_t 
     return NULL;
 }
 
-static int get_info(char* str, size_t len, char* lookup_str, size_t lookup_str_len,
-                    char* part_path) {
+static int get_info(char* str, size_t len, char* lookup_str, size_t lookup_str_len, char* part_path) {
+
     int ret = 0;
     int fd;
     off64_t size;
@@ -193,11 +193,10 @@ Value* VerifyTrustZoneFn(const char* name, State* state,
         return ErrorAbort(state, kArgsParsingFailure, "%s() error parsing arguments", name);
     }
 
-    ret = get_info(current_tz_version, TZ_VER_BUF_LEN, TZ_VER_STR, TZ_VER_STR_LEN,
-                   TZ_PART_PATH);
+    ret = get_info(current_tz_version, TZ_VER_BUF_LEN, (char*)TZ_VER_STR, TZ_VER_STR_LEN, (char*)TZ_PART_PATH);
+
     if (ret) {
-        return ErrorAbort(state, kFreadFailure,
-                          "%s() failed to read current TZ version: %d", name, ret);
+        return ErrorAbort(state, kFreadFailure, "%s() failed to read current TZ version: %d", name, ret);
     }
 
     ret = 0;
@@ -226,11 +225,11 @@ Value* VerifyVendorFn(const char* name, State* state,
     }
 
     // Check for vendor version
-    ret = get_info(current_version, VENDOR_VER_BUF_LEN, VENDOR_VER_STR, VENDOR_VER_STR_LEN,
-                   VENDOR_PART_PATH);
+    ret = get_info(current_version, VENDOR_VER_BUF_LEN, (char*)VENDOR_VER_STR, VENDOR_VER_STR_LEN, (char*)VENDOR_PART_PATH);
+
     if (ret) {
-        return ErrorAbort(state, kVendorFailure,
-                          "%s() failed to read current vendor version: %d", name, ret);
+        return ErrorAbort(state, kVendorFailure, "%s() failed to read current vendor version: %d", name, ret);
+
     }
 
     std::string new_current_version(current_version);
@@ -241,11 +240,10 @@ Value* VerifyVendorFn(const char* name, State* state,
     }
 
     // Check for UTC build date
-    ret = get_info(current_build_date, VENDOR_DATE_BUF_LEN, VENDOR_DATE_STR, VENDOR_DATE_STR_LEN,
-                   VENDOR_PART_PATH);
+	ret = get_info(current_build_date, VENDOR_DATE_BUF_LEN, (char*)VENDOR_DATE_STR, VENDOR_DATE_STR_LEN, (char*)VENDOR_PART_PATH);
+
     if (ret) {
-        return ErrorAbort(state, kVendorFailure,
-                          "%s() failed to read current vendor UTC build date: %d", name, ret);
+         return ErrorAbort(state, kVendorFailure, "%s() failed to read current vendor UTC build date: %d", name, ret);
     }
 
     if (std::stoi(current_build_date) >= std::stoi(args[1])) {
