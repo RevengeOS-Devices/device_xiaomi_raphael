@@ -245,6 +245,7 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service.raphael \
+    android.hardware.power.stats@1.0-service \
     vendor.qti.hardware.perf@2.0 \
     vendor.qti.hardware.perf@2.1 \
     vendor.qti.hardware.perf@2.2
