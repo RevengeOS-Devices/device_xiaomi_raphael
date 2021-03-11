@@ -61,45 +61,36 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.dsi.ant.antradio_library.xml
 
-# Atrace
-PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service
-
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio.service \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
-    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.audio.service \
     vendor.qti.hardware.audiohalext@1.0 \
     vendor.qti.hardware.audiohalext-utils
 
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.bluetooth.default \
-    audio.usb.default \
-    audio.r_submix.default \
-    tinymix
+    audio.a2dp.default
 
 PRODUCT_PACKAGES += \
-    libvolumelistener \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libqcomvoiceprocessingdescriptors \
-    libqcompostprocbundle
+    libqcomvoiceprocessingdescriptors
 
 PRODUCT_PACKAGES += \
+    tinymix \
     libaudio-resampler
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.audio@2.0-impl \
-    audio.bluetooth.default \
+    libbluetooth_qti \
     libbthost_if \
     libldacBT_dec \
     vendor.qti.hardware.bluetooth_audio@2.0 \
     vendor.qti.hardware.btconfigstore@1.0 \
     vendor.qti.hardware.btconfigstore@2.0
+
+# Camera
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.camera.device@1.0
 
 # Component overrides
 PRODUCT_COPY_FILES += \
@@ -109,38 +100,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.cryptfshw@1.0
 
-# Device-specific settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
-
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.4-impl \
     android.hardware.graphics.composer@2.4-service \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
+
+PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display
 
 PRODUCT_PACKAGES += \
-    libdisplayconfig.qti \
-    libqdMetaData \
-    libqdMetaData.system
-
-PRODUCT_PACKAGES += \
-    libtinyxml
-
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer@3.0 \
     vendor.qti.hardware.display.mapper@2.0 \
     vendor.qti.hardware.display.mapper@3.0 \
     vendor.qti.hardware.display.mapper@4.0 \
     vendor.qti.hardware.display.mapperextensions@1.0
-
-PRODUCT_PACKAGES += \
-    gralloc.msmnile \
-    hwcomposer.msmnile \
-    memtrack.msmnile
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
@@ -182,12 +156,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.ifaa.android.manager
 
-# IPA
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml \
-    libipanat
-
 # Init
 PRODUCT_PACKAGES += \
     init.mi_thermald.rc \
@@ -207,41 +175,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lineage.livedisplay@2.0-service-sdm
 
-# Media
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libcodec2_vndk \
-    libcodec2_hidl@1.0 \
-    libmm-omxcore \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxG711Enc \
-    libOmxQcelp13Enc \
-    libOmxSwVdec \
-    libOmxSwVencMpeg4 \
-    libOmxVdec \
-    libOmxVenc \
-    libstagefrighthw
-
-PRODUCT_PACKAGES += \
-    libavservices_minijail
-
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # NFC
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2-service \
     com.android.nfc_extras \
     com.gsma.services.nfc \
     NfcNci \
     SecureElement \
-    Tag
+    Tag \
+    vendor.nxp.hardware.nfc@1.2-service
 
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-service
 
 # Power
 PRODUCT_PACKAGES += \
@@ -253,17 +201,12 @@ PRODUCT_PACKAGES += \
 
 # QTI
 PRODUCT_PACKAGES += \
-    libjson \
     libqti_vndfwk_detect \
     libvndfwk_detect_jni.qti
 
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.4 \
-    libprotobuf-cpp-full \
-    libril \
-    librilutils \
-    librmnetctl \
     libxml2
 
 # Recovery
@@ -274,18 +217,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RemovePackages
 
-# RenderScript
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
-# Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service \
-    libsensorndkbridge
-
 # Service Tracker
 PRODUCT_PACKAGES += \
+    vendor.qti.hardware.servicetracker@1.0 \
+    vendor.qti.hardware.servicetracker@1.1 \
     vendor.qti.hardware.servicetracker@1.2
 
 # Signapk
@@ -352,25 +287,22 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
-    hostapd \
-    libwifi-hal-ctrl \
-    libwifi-hal-qcom \
-    vendor.qti.hardware.wifi.hostapd@1.0 \
-    vendor.qti.hardware.wifi.hostapd@1.1 \
     vendor.qti.hardware.wifi.hostapd@1.2 \
     vendor.qti.hardware.wifi.keystore@1.0 \
-    vendor.qti.hardware.wifi.supplicant@2.0 \
-    vendor.qti.hardware.wifi.supplicant@2.1 \
-    libwpa_client \
+    vendor.qti.hardware.wifi.supplicant@2.2 \
     TetheringConfigOverlay \
-    WifiOverlay \
-    wpa_supplicant \
-    wpa_supplicant.conf
+    WifiOverlay
 
 # WiFi Display
 PRODUCT_PACKAGES += \
-    libnl
+    libdisplayconfig.qti \
+    libnl \
+    libqdMetaData \
+    libqdMetaData.system
 
 #PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# XiaomiParts
+PRODUCT_PACKAGES += \
+    XiaomiParts
