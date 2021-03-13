@@ -308,3 +308,7 @@ PRODUCT_PACKAGES += \
 # Gcam
 PRODUCT_PACKAGES += \
 		GCamGo
+
+# wallet card & passes
+PRODUCT_PACKAGES += \
+		QuickAccessWallet
