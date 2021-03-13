@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/evolution_raphael.mk
+    $(LOCAL_DIR)/revengeos_raphael.mk
 
 COMMON_LUNCH_CHOICES := \
-    evolution_raphael-user \
-    evolution_raphael-userdebug \
-    evolution_raphael-eng
+    revengeos_raphael-user \
+    revengeos_raphael-userdebug \
+    revengeos_raphael-eng

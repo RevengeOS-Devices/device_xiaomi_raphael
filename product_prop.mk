@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2020-2021 The LineageOS Project
-# Copyright (C) 2020-2021 The Evolution X Project
+# Copyright (C) 2020-2021 The revengeos X Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
