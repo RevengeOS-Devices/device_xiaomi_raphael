@@ -5,13 +5,22 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+
 $(call inherit-product, device/xiaomi/raphael/device.mk)
 
-# Inherit some common revengeos X stuff.
-EVO_BUILD_TYPE := OFFICIAL
+# Inherit some common revengeOS stuff.
+REVENGEOS_BUILDTYPE := OFFICIAL
 EXTRA_FOD_ANIMATIONS := true
+
+# Setup Gapps options
+IS_PHONE := true
 TARGET_BOOT_ANIMATION_RES := 1080
-$(call inherit-product, vendor/revengeos/config/common_full_phone.mk)
+TARGET_GAPPS_ARCH := arm64
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_MINIMAL_APPS := false
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
+$(call inherit-product, vendor/revengeos/config/common.mk)
+$(call inherit-product, vendor/gapps/gapps.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_BRAND := Xiaomi
