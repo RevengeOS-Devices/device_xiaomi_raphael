@@ -97,5 +97,5 @@
     <bool name="config_hideFodCircleGoingToSleep">true</bool>
 
     <!-- Color of the FOD view -->
-    <color name="config_fodColor">#00FFFF</color>
+    <color name="config_fodColor">#00ffff</color>
 </resources>
