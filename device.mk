@@ -304,3 +304,7 @@ PRODUCT_PACKAGES += \
 # XiaomiParts
 PRODUCT_PACKAGES += \
     XiaomiParts
+
+# Gcam
+PRODUCT_PACKAGES += \
+		GCamGo
