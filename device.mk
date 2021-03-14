@@ -23,6 +23,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/raphael/raphael-vendor.mk)
 
@@ -184,15 +186,13 @@ PRODUCT_PACKAGES += \
     com.gsma.services.nfc \
     NfcNci \
     SecureElement \
-    Tag \
-    vendor.nxp.hardware.nfc@1.2-service
+    Tag
 
 PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service.raphael \
-    android.hardware.power.stats@1.0-service \
     vendor.qti.hardware.perf@2.0 \
     vendor.qti.hardware.perf@2.1 \
     vendor.qti.hardware.perf@2.2
@@ -246,17 +246,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.qti
-
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
-
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.2-service-qti
 
 # Vendor Overlays
 PRODUCT_COPY_FILES += \
