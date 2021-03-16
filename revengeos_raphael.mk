@@ -20,7 +20,8 @@ TARGET_INCLUDE_STOCK_ARCORE := true
 TARGET_MINIMAL_APPS := false
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 $(call inherit-product, vendor/revengeos/config/common.mk)
-$(call inherit-product, vendor/gapps/gapps.mk)
+#$(call inherit-product, vendor/gapps/gapps.mk)
+$(call inherit-product, vendor/vendor_gapps/config.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_BRAND := Xiaomi
