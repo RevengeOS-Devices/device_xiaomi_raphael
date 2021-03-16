@@ -23,8 +23,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/raphael/raphael-vendor.mk)
+$(call inherit-product, vendor/xiaomi/raphael/raphael-vendor.mk)
 
 include build/make/target/product/iorap_large_memory_config.mk
 
@@ -103,20 +105,44 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.cryptfshw@1.0
 
 # Display
+-include hardware/qcom-caf/sm8150/display/config/display-board.mk
+include vendor/qcom/opensource/commonsys-intf/display/config/display-product-system.mk
+
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4-impl \
     android.hardware.graphics.composer@2.4-service \
-
-PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
-    android.hardware.graphics.mapper@4.0-impl-qti-display
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator-service \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
 
 PRODUCT_PACKAGES += \
+    vendor.qti.hardware.display.allocator@1.0 \
+    vendor.qti.hardware.display.allocator@3.0 \
+    vendor.qti.hardware.display.composer@1.0 \
+    vendor.qti.hardware.display.composer@2.0 \
     vendor.qti.hardware.display.composer@3.0 \
+    vendor.display.config@1.0 \
+    vendor.display.config@1.1 \
+    vendor.display.config@1.2 \
+    vendor.display.config@1.3 \
+    vendor.display.config@1.4 \
+    vendor.display.config@1.5 \
+    vendor.display.config@1.6 \
+    vendor.display.config@1.7 \
+    vendor.display.config@1.8 \
+    vendor.display.config@1.9 \
+    vendor.display.config@1.10 \
+    vendor.display.config@1.11 \
+    vendor.display.config@2.0 \
+    vendor.qti.hardware.display.mapper@1.0 \
+    vendor.qti.hardware.display.mapper@1.1 \
     vendor.qti.hardware.display.mapper@2.0 \
     vendor.qti.hardware.display.mapper@3.0 \
     vendor.qti.hardware.display.mapper@4.0 \
-    vendor.qti.hardware.display.mapperextensions@1.0
+    vendor.qti.hardware.display.mapperextensions@1.0 \
+    vendor.qti.hardware.display.mapperextensions@1.1
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
@@ -184,15 +210,13 @@ PRODUCT_PACKAGES += \
     com.gsma.services.nfc \
     NfcNci \
     SecureElement \
-    Tag \
-    vendor.nxp.hardware.nfc@1.2-service
+    Tag
 
 PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service.raphael \
-    android.hardware.power.stats@1.0-service \
     vendor.qti.hardware.perf@2.0 \
     vendor.qti.hardware.perf@2.1 \
     vendor.qti.hardware.perf@2.2
@@ -246,17 +270,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.qti
-
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
-
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.2-service-qti
 
 # Vendor Overlays
 PRODUCT_COPY_FILES += \
@@ -293,10 +309,7 @@ PRODUCT_PACKAGES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
-    libdisplayconfig.qti \
-    libnl \
-    libqdMetaData \
-    libqdMetaData.system
+    libnl
 
 #PRODUCT_BOOT_JARS += \
     WfdCommon
