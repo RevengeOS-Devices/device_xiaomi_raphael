@@ -136,6 +136,9 @@ void vendor_load_properties() {
     property_override("ro.boot.hardware.revision", hardware_revision.c_str());
     property_override("ro.apex.updatable", "true");
     property_override("ro.oem_unlock_supported", "0");
+    property_override("ro.boot.vbmeta.device_state","locked");
+    property_override("ro.boot.selinux", "enforcing");
+    property_override("ro.boot.veritymode", "enforcing");
 
     load_dalvikvm_properties();
 }
