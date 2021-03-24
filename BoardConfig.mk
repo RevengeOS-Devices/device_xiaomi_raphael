@@ -206,7 +206,7 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 BOARD_VNDK_VERSION := current
 
 # neverallows
-SELINUX_IGNORE_NEVERALLOWS := true
+ SELINUX_IGNORE_NEVERALLOWS := true
 
 # Inherit from the proprietary version
 include vendor/xiaomi/raphael/BoardConfigVendor.mk
