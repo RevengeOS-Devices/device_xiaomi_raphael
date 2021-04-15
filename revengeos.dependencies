@@ -1,0 +1,8 @@
+[
+  {
+    "repository": "szradev/raphael_vendor",
+    "target_path": "vendor/xiaomi",
+    "branch": "r11.0",
+    "remote": "gitlab"
+  }
+ ]
